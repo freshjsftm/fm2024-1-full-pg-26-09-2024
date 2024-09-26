@@ -1,12 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getAllUsers } from '../api';
 
 export const getUsers = createAsyncThunk(
   'users/getUsers',
-  async ({ page, results }, thunkAPI) => {
+  async ({ page, amount }, thunkAPI) => {
     try {
-      const {data} = await fetch(
-        `http://localhost:3000/users?page=${page}&amount=${results}`
-      ).then((response) => response.json());
+      const {data:{data}} = await getAllUsers({ page, amount });      
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
