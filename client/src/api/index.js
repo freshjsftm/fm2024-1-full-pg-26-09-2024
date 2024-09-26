@@ -5,7 +5,12 @@ const httpClient = axios.create({
   baseURL: 'http://localhost:3000',
 });
 
-export const postUser = (values) => httpClient.post('/users', values);
+export const postUser = (values) =>
+  httpClient.post('/users', values, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 
 export const getAllUsers = (options = {}) => {
   const defaultOptions = {

@@ -5,7 +5,7 @@ const mimetypes = ['image/png', 'image/jpeg'];
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.resolve(__dirname, '..', IMAGE_PATH));
+    cb(null, path.resolve(__dirname, '../../', IMAGE_PATH));
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname);
