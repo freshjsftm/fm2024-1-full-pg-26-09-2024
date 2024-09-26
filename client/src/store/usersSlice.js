@@ -4,10 +4,10 @@ export const getUsers = createAsyncThunk(
   'users/getUsers',
   async ({ page, results }, thunkAPI) => {
     try {
-      const data = await fetch(
+      const {data} = await fetch(
         `http://localhost:3000/users?page=${page}&amount=${results}`
       ).then((response) => response.json());
-      return data.results;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
