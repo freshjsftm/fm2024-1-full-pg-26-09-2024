@@ -17,10 +17,10 @@ const UserProfile = () => {
     dispatch(getUser(Number(userId)));
     //eslint-disable-next-line
   }, []);
-  // useEffect(() => {
-  //   dispatch(getTasks({ id: Number(userId) }));
-  //   //eslint-disable-next-line
-  // }, []);
+  useEffect(() => {
+    dispatch(getTasks({ id: Number(userId) }));
+    //eslint-disable-next-line
+  }, []);
   const showTasks = () => {
     dispatch(getTasks({ id: userCurrent.id }));
   };

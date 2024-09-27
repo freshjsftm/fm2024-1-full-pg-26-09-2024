@@ -37,7 +37,7 @@ export const getAllTasks = (options = {}) => {
     ...options,
     id:undefined
   };
-  console.log(`/users/${options.id}/tasks?${queryString.stringify(resultOptions)}`);
+  // console.log(`/users/${options.id}/tasks?${queryString.stringify(resultOptions)}`);
   
   return httpClient.get(
     `/users/${options.id}/tasks`
