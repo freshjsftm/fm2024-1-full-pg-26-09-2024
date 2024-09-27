@@ -13,7 +13,7 @@ export const postUser = (values) =>
   });
 
 export const getOneUser = (id) => httpClient.get(`/users/${id}`);
-// export const delOneUser = (id) => httpClient.delete(`/users/${id}`);
+export const delOneUser = (id) => httpClient.delete(`/users/${id}`);
 
 export const getAllUsers = (options = {}) => {
   const defaultOptions = {
