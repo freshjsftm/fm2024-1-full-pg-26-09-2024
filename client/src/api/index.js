@@ -26,3 +26,20 @@ export const getAllUsers = (options = {}) => {
   };
   return httpClient.get(`/users?${queryString.stringify(resultOptions)}`);
 };
+
+export const getAllTasks = (options = {}) => {
+  const defaultOptions = {
+    page: 1,
+    amount: 5,
+  };
+  const resultOptions = {
+    ...defaultOptions,
+    ...options,
+    id:undefined
+  };
+  console.log(`/users/${options.id}/tasks?${queryString.stringify(resultOptions)}`);
+  
+  return httpClient.get(
+    `/users/${options.id}/tasks`
+  );
+};
