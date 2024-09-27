@@ -12,13 +12,13 @@ const UsersList = () => {
     //eslint-disable-next-line
   }, []); //[] - one time
 
-  const handleDelete = (id) => {
+  const handleDelete = (id) => () => {
     dispatch(deleteUser(id));
   };
   const mapUsers = (user) => (
     <li key={user.id}>
       <Link to={`/users/${user.id}`}>{user.email}</Link>
-      <button onClick={() => handleDelete(user.id)}>delete</button>
+      <button onClick={handleDelete(user.id)}>delete</button>
     </li>
   );
   return (
