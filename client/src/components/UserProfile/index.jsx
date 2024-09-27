@@ -17,7 +17,11 @@ const UserProfile = () => {
       {!error && !isPending && userCurrent && (
         <article>
           <h3>{userCurrent.email}</h3>
-          
+          {userCurrent.avatar ? (
+            <img src={`http://localhost:3000/images/${userCurrent.avatar}`} alt={userCurrent.email} />
+          ) : (
+            <img src="/avatar_noname.png" alt="none" />
+          )}
         </article>
       )}
     </div>
