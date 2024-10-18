@@ -54,8 +54,26 @@ describe('register', () => {
     const response = await appRequest.post('/users').send({});
     expect(response.statusCode).toBe(400);
   });
-  test('user failed any field 400', async () => {
-    const response = await appRequest.post('/users').send(getUserDataError());
+  test('user failed firstName field 400', async () => {
+    const response = await appRequest.post('/users').send({
+      firstName: 'Op',
+      lastName: 'Rotitt',
+      email: `rotitt_${Date.now()}@gmail.com`,
+      password: 'pitt_1123',
+      birthday: '1973-12-18',
+      isMale: true,
+    });
+    expect(response.statusCode).toBe(400);
+  });
+  test('user failed firstName empty field 400', async () => {
+    const response = await appRequest.post('/users').send({
+      firstName: '',
+      lastName: 'Rotitt',
+      email: `rotitt_${Date.now()}@gmail.com`,
+      password: 'pitt_1123',
+      birthday: '1973-12-18',
+      isMale: true,
+    });
     expect(response.statusCode).toBe(400);
   });
 });
