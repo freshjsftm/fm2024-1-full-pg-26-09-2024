@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: true,
           notEmpty: true,
+          isValid(value) {
+            if (/^[A-Z][a-z]{3,31}$/.test(value)===false) {
+              throw new Error('Error: check birthday');
+            }
+          },
         },
       },
       lastName: {
@@ -31,6 +36,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: true,
           notEmpty: true,
+          isValid(value) {
+            if (/^[A-Z][a-z]{3,31}$/.test(value)===false) {
+              throw new Error('Error: check birthday');
+            }
+          },
         },
       },
       email: {

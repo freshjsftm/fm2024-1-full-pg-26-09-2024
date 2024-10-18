@@ -6,6 +6,12 @@
     "host": "localhost",
     "dialect": "postgres"
   },
-  "test": {},
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "fm2024_sequelize_test",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
   "production": {}
 }

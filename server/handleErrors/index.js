@@ -5,7 +5,7 @@ module.exports.handleErrors = (err, req, res, next) => {
   //console.log('----in handlerError--->>>>>>', err);
   if (err instanceof UniqueConstraintError) {
     return res.status(409).send({
-      errors: [{ detail: 'User with this email already exists' }],
+      errors: [{ detail: err.message || 'User with this email already exists' }],
     });
   }
   if (err instanceof ValidationError) {
